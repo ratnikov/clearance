@@ -9,7 +9,7 @@ module Clearance
       def update_application_controller
         sentinel = "class ApplicationController < ActionController::Base"
         inject_into_file "app/controllers/application_controller.rb",
-                         "include Clearance::Authentication",
+                         "\ninclude Clearance::Authentication",
                          { :after => sentinel, :verbose => false }
       end
 
@@ -17,7 +17,7 @@ module Clearance
         user_model = "app/models/user.rb"
         if File.exists?(user_model)
           sentinel = "class User < ActiveRecord::Base"
-          inject_into_file user_model, "include Clearance::User",  { :after => sentinel, :verbose => false }
+          inject_into_file user_model, "\ninclude Clearance::User",  { :after => sentinel, :verbose => false }
         else
           empty_directory File.join("app", "models")
           copy_file "user.rb", user_model
@@ -36,7 +36,8 @@ module Clearance
 
       def migration_name
         if upgrading_clearance_again?
-          "update_users_to_#{schema_version}"
+          # "update_users_to_#{schema_version}"
+          'update_users'
         else
           'create_users'
         end
