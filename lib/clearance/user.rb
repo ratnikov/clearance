@@ -190,7 +190,7 @@ module Clearance
       end
 
       def send_confirmation_email
-        ClearanceMailer.deliver_confirmation self
+        ClearanceMailer.confirmation(self).deliver
       end
     end
 
