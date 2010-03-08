@@ -31,13 +31,12 @@ module Clearance
 
       def create_migration_file
         migration_template "migrations/#{migration_name}.rb",
-                           "db/migrate/#{@migration_number}clearance_#{migration_name}.rb"
+                           "db/migrate/#{@migration_number}clearance_#{migration_name true}.rb"
       end
 
-      def migration_name
+      def migration_name(including_version = false)
         if upgrading_clearance_again?
-          # "update_users_to_#{schema_version}"
-          'update_users'
+          including_version ? "update_users_to_#{schema_version}" : 'update_users'
         else
           'create_users'
         end
