@@ -8,7 +8,10 @@ module Clearance
   end
 
   class << self
-    attr_accessor :configuration
+    attr_writer :configuration
+    def configuration
+      @configuration ||= Configuration.new
+    end
   end
 
   # Configure Clearance someplace sensible,
