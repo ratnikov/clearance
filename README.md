@@ -51,6 +51,16 @@ method in a before_filter.
       end
     end
 
+If you would like to filter out senstive parameters, add them to application configuration:
+
+    module MyApp
+      class Application < Rails::Applcation
+        # ...
+
+	config.filter_params << :password << :password_confirmation << :token
+      end
+    end
+
 Customizing
 -----------
 
