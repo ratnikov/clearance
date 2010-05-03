@@ -36,7 +36,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage    = "http://github.com/thoughtbot/clearance"
   gem.authors     = ["Dan Croak", "Mike Burns", "Jason Morrison",
                      "Joe Ferris", "Eugene Bolshakov", "Nick Quaranto",
-                     "Josh Nichols", "Mike Breen", "Marcel Görner",
+                     "Josh Nichols", "Mike Breen", "Marcel Goerner",
                      "Bence Nagy", "Ben Mabey", "Eloy Duran",
                      "Tim Pope", "Mihai Anca", "Mark Cornick",
                      "Shay Arnett", "Jon Yurek", "Chad Pytel"]
